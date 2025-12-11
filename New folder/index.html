@@ -17,10 +17,9 @@
         <!-- Header Section -->
         <header class="header">
             <div class="logo-section">
-                <div class="volunteer-badge">🤝 Volunteer Edition</div>
-                <h1 class="main-title">AWS Student Community Day</h1>
-                <p class="subtitle">Ahmedabad 2025 - Volunteer Card Generator</p>
-                <p class="event-date">📅 December 12, 2025 | 📍 Silver Oak University</p>
+                <div class="volunteer-badge">Social Studio</div>
+                <h1 class="main-title">Card Creator</h1>
+                <p class="subtitle">AWS Cloud Clubs Student Community Day Ahmedabad 2025</p>
             </div>
         </header>
 
@@ -29,65 +28,60 @@
             <!-- Left Panel - Controls -->
             <div class="control-panel">
                 <div class="panel-card">
-                    <h2 class="panel-title">Create Your Volunteer Card</h2>
-                    <p class="panel-description">Generate your personalized volunteer card in seconds!</p>
+                    <h2 class="panel-title">Create Your Card</h2>
 
                     <!-- Photo Upload -->
                     <div class="section">
-                        <label class="section-label">
-                            <span class="label-icon">📸</span>
-                            Upload Your Photo
-                        </label>
+                        <label class="section-label">Upload Photo</label>
                         <div class="upload-area" id="uploadArea">
                             <input type="file" id="photoInput" accept="image/*" onchange="handlePhotoUpload(event)"
                                 hidden>
                             <div class="upload-content" onclick="document.getElementById('photoInput').click()">
                                 <div class="upload-icon">📷</div>
-                                <p class="upload-text">Click to upload your photo</p>
-                                <p class="upload-hint">Best results with square images (1:1 ratio)</p>
-                                <p class="upload-size">Max size: 5MB | JPG, PNG</p>
+                                <p class="upload-text">Click to upload</p>
+                                <p class="upload-hint">JPG or PNG</p>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Template Selection -->
+                    <div class="section">
+                        <label class="section-label">Choose Template</label>
+                        <div class="template-buttons">
+                            <button class="template-btn active" onclick="switchTemplate('attending')" id="btn-attending">
+                                <span class="template-icon">👥</span>
+                                Attending
+                            </button>
+                            <button class="template-btn" onclick="switchTemplate('volunteering')" id="btn-volunteering">
+                                <span class="template-icon">🤝</span>
+                                Volunteering
+                            </button>
                         </div>
                     </div>
 
                     <!-- Name Input -->
                     <div class="section">
-                        <label class="section-label" for="nameInput">
-                            <span class="label-icon">👤</span>
-                            Your Name (Optional)
-                        </label>
-                        <input type="text" id="nameInput" class="name-input" placeholder="Enter your name..."
+                        <label class="section-label" for="nameInput">Your Name</label>
+                        <input type="text" id="nameInput" class="name-input" placeholder="Your name here"
                             maxlength="30" oninput="drawCard()">
-                        <p class="input-hint">Leave blank if you don't want to add your name</p>
                     </div>
 
                     <!-- Download Button -->
                     <div class="section">
                         <button class="download-btn" id="downloadBtn" onclick="downloadCard()">
-                            <span class="download-icon">⬇️</span>
-                            <span>Download Volunteer Card</span>
+                            Download Card
                         </button>
-                        <p class="download-hint">High quality 1080x1350px - Perfect for Instagram Posts!</p>
                     </div>
 
                     <!-- Instructions -->
                     <div class="instructions">
-                        <h3 class="instructions-title">📋 Quick Guide</h3>
+                        <h3 class="instructions-title">Steps</h3>
                         <ol class="instructions-list">
-                            <li><strong>Upload Photo:</strong> Choose a clear, professional photo</li>
-                            <li><strong>Add Name:</strong> Optionally add your name to the card</li>
-                            <li><strong>Preview:</strong> Check your card in real-time on the right</li>
-                            <li><strong>Download:</strong> Save and share on social media!</li>
+                            <li>Upload your photo</li>
+                            <li>Pick a template</li>
+                            <li>Add name (optional)</li>
+                            <li>Download card</li>
                         </ol>
-
-                        <div class="tips-section">
-                            <h4 class="tips-title">💡 Pro Tips</h4>
-                            <ul class="tips-list">
-                                <li>Use a photo with good lighting</li>
-                                <li>Square photos work best</li>
-                                <li>Share on Instagram Stories for maximum reach</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -95,28 +89,18 @@
             <!-- Right Panel - Preview -->
             <div class="preview-panel">
                 <div class="preview-header">
-                    <h2 class="preview-title">Live Preview</h2>
-                    <div class="preview-badge">
-                        <span class="pulse-dot"></span>
-                        Real-time
-                    </div>
+                    <h2 class="preview-title">Preview</h2>
                 </div>
 
                 <div class="preview-container">
                     <canvas id="cardCanvas" width="1080" height="1350"></canvas>
-                    <div class="preview-info">
-                        <span class="info-item">📐 1080 × 1350 px</span>
-                        <span class="info-item">📱 Instagram Post Ready</span>
-                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer class="footer">
-            <p class="footer-text">
-                Made with ❤️ for AWS Cloud Clubs | Silver Oak University
-            </p>
+            <p class="footer-text">AWS Community Day</p>
         </footer>
     </div>
 

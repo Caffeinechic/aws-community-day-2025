@@ -1,11 +1,17 @@
 // Global variables
 let userPhoto = null;
 let userName = '';
+let currentTemplate = 'attending';
 let backgroundImage = new Image();
 
-// Load the volunteer template image
-backgroundImage.src = 'template.png';
-backgroundImage.crossOrigin = 'anonymous';
+// Load the template image
+function loadTemplate() {
+    const templateName = currentTemplate === 'attending' ? 'Attending.jpg' : 'Volunteering.png';
+    backgroundImage.src = templateName;
+    backgroundImage.crossOrigin = 'anonymous';
+}
+
+loadTemplate();
 
 backgroundImage.onload = function () {
     drawCard();
@@ -18,6 +24,23 @@ backgroundImage.onerror = function () {
 window.addEventListener('load', function () {
     drawCard();
 });
+
+// Switch template
+function switchTemplate(templateName) {
+    currentTemplate = templateName;
+    
+    // Update button states
+    document.getElementById('btn-attending').classList.remove('active');
+    document.getElementById('btn-volunteering').classList.remove('active');
+    
+    if (templateName === 'attending') {
+        document.getElementById('btn-attending').classList.add('active');
+    } else {
+        document.getElementById('btn-volunteering').classList.add('active');
+    }
+    
+    loadTemplate();
+}
 
 // Handle photo upload
 function handlePhotoUpload(event) {
@@ -137,20 +160,20 @@ function downloadCard() {
 
     const link = document.createElement('a');
     const timestamp = new Date().toISOString().slice(0, 10);
-    link.download = `AWS-SCD-Volunteer-Card-${timestamp}.png`;
+    link.download = `Volunteer-Card-${timestamp}.png`;
     link.href = canvas.toDataURL('image/png', 1.0);
     link.click();
 
     const downloadBtn = document.getElementById('downloadBtn');
     const originalText = downloadBtn.innerHTML;
 
-    downloadBtn.innerHTML = '<span class="download-icon">✅</span><span>Downloaded Successfully!</span>';
-    downloadBtn.style.background = 'linear-gradient(135deg, #00d084 0%, #00a86b 100%)';
+    downloadBtn.innerHTML = 'Downloaded!';
+    downloadBtn.style.background = 'var(--success-green)';
 
     setTimeout(() => {
         downloadBtn.innerHTML = originalText;
         downloadBtn.style.background = '';
-    }, 2500);
+    }, 2000);
 }
 
 // Add roundRect support

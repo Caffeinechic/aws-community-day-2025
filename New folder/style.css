@@ -190,18 +190,8 @@ body::before {
 .panel-title {
     font-size: 2rem;
     font-weight: 800;
-    margin-bottom: 10px;
-    background: var(--gradient-green);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.panel-description {
-    font-size: 1rem;
-    color: var(--text-secondary);
     margin-bottom: 30px;
-    line-height: 1.5;
+    color: var(--text-primary);
 }
 
 .section {
@@ -220,6 +210,47 @@ body::before {
 
 .label-icon {
     font-size: 1.2rem;
+}
+
+/* Template Buttons */
+.template-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.template-btn {
+    padding: 16px 12px;
+    background: var(--hover-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.template-btn:hover {
+    border-color: var(--volunteer-green);
+    background: rgba(0, 208, 132, 0.1);
+    transform: translateY(-2px);
+}
+
+.template-btn.active {
+    background: var(--volunteer-green);
+    border-color: var(--volunteer-green);
+    color: #000;
+}
+
+.template-icon {
+    font-size: 1.5rem;
 }
 
 /* Upload Area */
@@ -286,15 +317,14 @@ body::before {
     opacity: 0.7;
 }
 
-/* Name Input */
 .name-input {
     width: 100%;
-    padding: 16px 20px;
+    padding: 14px 16px;
     background: var(--hover-bg);
     border: 2px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 10px;
     color: var(--text-primary);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
@@ -304,12 +334,11 @@ body::before {
     outline: none;
     border-color: var(--volunteer-green);
     background: rgba(0, 208, 132, 0.05);
-    box-shadow: 0 0 0 3px rgba(0, 208, 132, 0.1);
 }
 
 .name-input::placeholder {
     color: var(--text-secondary);
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .input-hint {
@@ -321,67 +350,53 @@ body::before {
 /* Download Button */
 .download-btn {
     width: 100%;
-    padding: 20px;
-    background: var(--gradient-green);
+    padding: 16px 20px;
+    background: var(--volunteer-green);
     border: none;
-    border-radius: 16px;
-    color: var(--text-primary);
-    font-size: 1.25rem;
-    font-weight: 800;
+    border-radius: 12px;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 700;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
-    box-shadow: 0 5px 25px rgba(0, 208, 132, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 208, 132, 0.3);
 }
 
 .download-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 35px rgba(0, 208, 132, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 208, 132, 0.5);
 }
 
 .download-btn:active {
     transform: translateY(0);
 }
 
-.download-icon {
-    font-size: 1.5rem;
-}
-
-.download-hint {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    text-align: center;
-    margin-top: 10px;
-}
-
 /* Instructions */
 .instructions {
-    margin-top: 30px;
-    padding: 25px;
-    background: rgba(0, 208, 132, 0.05);
-    border-radius: 16px;
-    border: 1px solid rgba(0, 208, 132, 0.2);
+    margin-top: 25px;
+    padding: 20px;
+    background: var(--hover-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
 }
 
 .instructions-title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: var(--volunteer-green);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
 }
 
 .instructions-list {
     padding-left: 20px;
     color: var(--text-secondary);
-    line-height: 2;
+    line-height: 1.8;
 }
 
 .instructions-list li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
 }
 
 .instructions-list strong {
@@ -390,26 +405,27 @@ body::before {
 }
 
 .tips-section {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0, 208, 132, 0.2);
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
 }
 
 .tips-title {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: var(--volunteer-green);
 }
 
 .tips-list {
     padding-left: 20px;
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 .tips-list li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
 }
 
 /* Preview Panel */
@@ -437,43 +453,9 @@ body::before {
 }
 
 .preview-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: var(--text-primary);
-}
-
-.preview-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: var(--volunteer-green);
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.5;
-        transform: scale(1.2);
-    }
 }
 
 .preview-container {
@@ -492,7 +474,7 @@ body::before {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .preview-info {
@@ -522,7 +504,7 @@ body::before {
 }
 
 .footer-text {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     font-weight: 500;
 }
